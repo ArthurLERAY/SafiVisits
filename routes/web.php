@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/directory','directoryController@index')->name('directory');
+Route::get('/complementaryActivities','complementaryActivitiesController@index')->name('complementaryActivities');
