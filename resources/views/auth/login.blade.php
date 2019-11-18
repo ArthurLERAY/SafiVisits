@@ -12,6 +12,11 @@
                         @csrf
 
                         <div class="form-group row">
+                            <img src="/vendor/img/SAFI-Logo.png" height="90" width="80">
+                        </div>
+
+                        <div class="form-group row">
+
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -47,6 +52,11 @@
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
+                                    @if (Route::has('password.request'))
+                                    <a class="btn btn-link" style="padding-bottom: 9px" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -57,11 +67,7 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+
                             </div>
                         </div>
                     </form>
