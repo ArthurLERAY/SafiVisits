@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
+
+//Used to call API ressources
 class APIController extends Controller
 {
 
@@ -16,6 +18,16 @@ class APIController extends Controller
         return json_decode($res->getBody());
     }
 
+    public function auth()
+    {
+        //todo
+    }
+
+    public function resetPwd()
+    {
+        //todo
+    }
+
     public function drugAdd()
     {
         $client = new Client();
@@ -23,10 +35,10 @@ class APIController extends Controller
         return json_decode($res->getBody());
     }
 
-    public function drugById($id)
+    public function drugById($drugId)
     {
         $client = new Client();
-        $res = $client->request('GET',env('RAO_URL').'/drug/find/{'.$id);
+        $res = $client->request('GET',env('RAO_URL').'/drug/find/'.$drugId);
         return json_decode($res->getBody());
     }
 
@@ -44,10 +56,10 @@ class APIController extends Controller
         return json_decode($res->getBody());
     }
 
-    public function employeeById()
+    public function employeeById($employeeId)
     {
         $client = new Client();
-        $res = $client->request('GET',env('RAO_URL').'/report/list');
+        $res = $client->request('GET',env('RAO_URL').'/employee/'.$employeeId);
         return json_decode($res->getBody());
     }
 
@@ -65,10 +77,10 @@ class APIController extends Controller
         return json_decode($res->getBody());
     }
 
-    public function employeeListByType($type)
+    public function employeeListByType($employeeType)
     {
         $client = new Client();
-        $res = $client->request('GET',env('RAO_URL').'/employee/list/type/'.$type);
+        $res = $client->request('GET',env('RAO_URL').'/employee/list/type/'.$employeeType);
         return json_decode($res->getBody());
     }
 
@@ -93,10 +105,10 @@ class APIController extends Controller
         return json_decode($res->getBody());
     }
 
-    public function reportById($id)
+    public function reportById($reportId)
     {
         $client = new Client();
-        $res = $client->request('GET',env('RAO_URL').'/report/'.$id);
+        $res = $client->request('GET',env('RAO_URL').'/report/'.$reportId);
         return json_decode($res->getBody());
     }
 
@@ -114,10 +126,10 @@ class APIController extends Controller
         return json_decode($res->getBody());
     }
 
-    public function visitByPratitioner($pratitioner_id)
+    public function visitByPratitioner($pratitionerId)
     {
         $client = new Client();
-        $res = $client->request('GET',env('RAO_URL').'/visit/pratitioner/'.$pratitioner_id);
+        $res = $client->request('GET',env('RAO_URL').'/visit/pratitioner/'.$pratitionerId);
         return json_decode($res->getBody());
     }
 
@@ -128,10 +140,10 @@ class APIController extends Controller
         return json_decode($res->getBody());
     }
 
-    public function visitDate($date)
+    public function visitDate($visitDate)
     {
         $client = new Client();
-        $res = $client->request('GET',env('RAO_URL').'/visit/date/'.$date);
+        $res = $client->request('GET',env('RAO_URL').'/visit/date/'.$visitDate);
         return json_decode($res->getBody());
     }
 }
