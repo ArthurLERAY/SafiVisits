@@ -14,6 +14,16 @@ class APIController extends Controller
 
     }
 
+    public function drugAdd()
+    {
+        
+    }
+
+    public function drugById()
+    {
+        
+    }
+
     public function drugList()
     {
 
@@ -24,18 +34,51 @@ class APIController extends Controller
 
     }
 
+    public function employeeById()
+    {
+        
+    }
+
+    public function employeeCreate()
+    {
+        
+    }
+
+    public function employeeEdit()
+    {
+        
+    }
+
+    public function employeeListByType()
+    {
+        
+    }
+
+    public function employeeState()
+    {
+        
+    }
+
+    public function familyList()
+    {
+        
+    }
+
     public function pratitionerList()
     {
 
     }
 
+    public function reportById()
+    {
+        
+    }
+    
     public function reportCreate()
     {
 
     }
-
-
-
+    
     public function reportList()
     {
         $client = new Client();
@@ -43,12 +86,17 @@ class APIController extends Controller
         return json_decode($res->getBody());
     }
 
-    public function visitDate($date)
+    public function visitByPratitioner()
     {
 
     }
 
-    public function visitByPratitioner()
+    public function visitCreate()
+    {
+        
+    }
+
+    public function visitDate($date)
     {
 
     }
