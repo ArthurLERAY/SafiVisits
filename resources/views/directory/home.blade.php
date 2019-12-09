@@ -7,15 +7,13 @@
                 <div class="card">
                     <div class="card-header">Dashboard</div>
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        You are logged in!
+                    <div class="col-3">
+                        @component('_partials.box')
+                            <h3>{{ $reports->count() }}</h3>
+                            {{ Str::plural('Report',$reports->count()) }}
+                        @endcomponent
                     </div>
+
                 </div>
             </div>
         </div>

@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pratitioner extends Model
 {
-    private $id;
-    private $lastname;
-    private $firstname;
-    private $address;
-    private $tel;
-    private $notorietyCoeff;
-    private $complementarySpeciality;
-    private $district_id;
+    public function list()
+    {
+        $pratitioners = [] ;
+        $jsonArrays = RAO::get($this->routeAPISuite.'/list');
+        foreach ($jsonArrays as $jsonArray) {
+            $onePratitioner = new Pratitioner($jsonArray);
+            $pratitioners[] = $onePratitioner;
+        }
+        return $pratitioners;
+    }
 }

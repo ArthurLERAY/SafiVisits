@@ -6,18 +6,34 @@ use Illuminate\Database\Eloquent\Model;
 
 class employee extends Model
 {
-    private $id;
-    private $code;
-    private $firstname;
-    private $lastname;
-    private $login;
-    private $password;
-    private $address;
-    private $postalCode;
-    private $city;
-    private $phone;
-    private $hireDate;
-    private $timespan;
-    private $api_token;
-    private $district_id;
+    public function find()
+    {
+
+    }
+
+    public function edit()
+    {
+
+    }
+
+    public function changeState()
+    {
+
+    }
+
+    public function list()
+    {
+        $employees = [] ;
+        $jsonArrays = RAO::get($this->routeAPISuite.'/list');
+        foreach ($jsonArrays as $jsonArray) {
+            $oneEmployee = new Employee($jsonArray);
+            $employees[] = $oneEmployee;
+        }
+        return $employees;
+    }
+
+    public function create()
+    {
+
+    }
 }
