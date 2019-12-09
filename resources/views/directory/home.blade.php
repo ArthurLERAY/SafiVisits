@@ -8,10 +8,7 @@
                     <div class="card-header">Dashboard</div>
 
                     <div class="col-3">
-                        @component('_partials.box')
-                            <h3>{{ $reports->count() }}</h3>
-                            {{ Str::plural('Report',$reports->count()) }}
-                        @endcomponent
+                            <h3>{{$reports}}</h3>
                     </div>
 
                 </div>

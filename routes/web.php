@@ -14,6 +14,8 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
+//Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+//Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/directory','directoryController@index')->name('directory');

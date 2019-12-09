@@ -119,7 +119,7 @@ class APIController extends Controller
         return json_decode($res->getBody());
     }
 
-    public function reportList()
+    public static function reportList()
     {
         $client = new Client();
         $res = $client->request('GET',env('RAO_URL').'/report/list');
