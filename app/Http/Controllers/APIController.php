@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Model;
+use App\Report;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,7 @@ class APIController extends Controller
     {
         $client = new Client();
         $res = $client->request('POST',env('RAO_URL').'/activity/ask');
-        return json_decode($res->getBody());
+        return json_decode($res->getBody(),true);
     }
 
     public function auth()
@@ -123,7 +125,8 @@ class APIController extends Controller
     {
         $client = new Client();
         $res = $client->request('GET',env('RAO_URL').'/report/list');
-        return json_decode($res->getBody());
+        $json=$res->getBody();
+        return Model::json2Class($json,Report::class);
     }
 
     public function visitByPratitioner($pratitionerId)
