@@ -2,21 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Eastwest\Json\JsonException ;
+use App\Pratitioner;
 
 
 class DirectoryController extends Controller
 {
     public function index()
     {
-        var_dump(APIController::reportList());
-
-
-//        return view('directory/home')->with($reports);
+        $pratitioners = Pratitioner::list();
+        return view('directory/home',['pratitioners'=>$pratitioners]);
     }
-
-
-
-
 }

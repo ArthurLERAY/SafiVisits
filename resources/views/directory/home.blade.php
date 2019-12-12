@@ -1,18 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
-
-                    <div class="col-3">
-                            <h3>{{$reports}}</h3>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="col-2">
+    <h3>{{$pratitioners[1]->firstname.' '.$pratitioners[1]->lastname}}</h3>
+</div>
 @endsection

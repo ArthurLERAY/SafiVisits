@@ -2,10 +2,9 @@
 
 namespace App;
 
-//use Illuminate\Database\Eloquent;
 use Illuminate\Support\Facades\App;
 
-class Model // extends Eloquent\Model
+class Model
 {
 
     public function __construct($params){

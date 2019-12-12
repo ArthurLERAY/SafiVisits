@@ -2,18 +2,14 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+
+use App\Http\Controllers\APIController;
 
 class Pratitioner extends Model
 {
-    public function list()
+    public static function list()
     {
-        $pratitioners = [] ;
-        $jsonArrays = RAO::get($this->routeAPISuite.'/list');
-        foreach ($jsonArrays as $jsonArray) {
-            $onePratitioner = new Pratitioner($jsonArray);
-            $pratitioners[] = $onePratitioner;
-        }
+        $pratitioners = APIController::pratitionerList();
         return $pratitioners;
     }
 }

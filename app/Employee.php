@@ -2,9 +2,7 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class employee extends Model
+class Employee extends Model
 {
     public function find()
     {
