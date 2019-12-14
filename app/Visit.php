@@ -3,19 +3,22 @@
 namespace App;
 
 
+use App\Http\Controllers\APIController;
+
 class Visit extends Model
 {
-    public function statsDashboard()
+    public static function statsDashboard($id)
+    {
+        $visites = APIController::visitByPratitioner($id);
+        return $visites;
+    }
+
+    public static function pratitioner()
     {
 
     }
 
-    public function pratitioner()
-    {
-
-    }
-
-    public function statByDate()
+    public static function statByDate()
     {
 
     }

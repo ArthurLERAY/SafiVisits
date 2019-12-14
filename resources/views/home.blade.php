@@ -11,6 +11,8 @@
                     <div class="col-md-6">
                         <div class="card-box">
                             <!--TODO Visite aujourd'hui-->
+                            @component('_partials/list')
+                            @endcomponent
                         </div>
                         <div>
                             <!--TODO Prochaine Visite-->
