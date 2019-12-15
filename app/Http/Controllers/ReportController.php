@@ -8,22 +8,22 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    public function index()
+    public function update()
     {
-
+        return view('inProgress');
     }
 
     public static function byId($id)
     {
         $report=Report::byId($id);
-        $drugs=Drug::list();
-        return view('visitReport/home',['report'=>$report,'drugs'=>$drugs]);
+        return view('visitReport/home',['report'=>$report[0]]);
     }
 
-    public static function edit(Request $request)
+    public static function edit($id)
     {
-        $report=Report::edit($request);
-        return route('home');
+        $report = Report::byId($id);
+        $drugs=Drug::list();
+        return view('visitReport/edit',['report'=>$report[0],'drugs'=>$drugs]);
     }
 
 }

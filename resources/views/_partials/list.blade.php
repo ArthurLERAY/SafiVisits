@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
 @section('js')
     <script>
         $(document).ready(function() {
@@ -25,7 +23,7 @@
             <td>
                 <a href="{{route('report',['id'=>$pratitioner->id])}}">
                     <button class="edit-modal btn btn-info">
-                        <span class="glyphicon glyphicon-edit"></span> Edit
+                        <span class="glyphicon glyphicon-edit"></span> voir le rapport
                     </button>
                 </a>
             </td>
