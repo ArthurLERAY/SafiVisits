@@ -5,6 +5,8 @@ namespace App;
 
 
 use App\Http\Controllers\APIController;
+use Illuminate\Http\Request;
+
 
 class Report extends Model
 {
@@ -25,8 +27,8 @@ class Report extends Model
         return $report;
     }
 
-    public static function edit()
+    public static function edit(Request $request)
     {
-        $report = APIController::reportEdit();
+        $report = APIController::reportEdit($request);
     }
 }

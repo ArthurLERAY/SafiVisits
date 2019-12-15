@@ -144,7 +144,7 @@ class APIController extends Controller
         return json_decode($res->getBody());
     }
 
-    public static function reportEdit()
+    public static function reportEdit(Request $request)
     {
         $client = new Client();
         $res = $client->request('PUT',env('RAO_URL').'/report/edit');

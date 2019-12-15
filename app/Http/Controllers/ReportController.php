@@ -20,9 +20,9 @@ class ReportController extends Controller
         return view('visitReport/home',['report'=>$report,'drugs'=>$drugs]);
     }
 
-    public static function edit()
+    public static function edit(Request $request)
     {
-        $report=Report::edit();
+        $report=Report::edit($request);
         return route('home');
     }
 

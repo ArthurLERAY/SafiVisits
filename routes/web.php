@@ -23,5 +23,5 @@ Route::get('/complementaryActivities','ComplementaryActivitiesController@index')
 Route::get('report/{id}','ReportController@byId')->name('report');
 
 Route::get('dashboard/drug', 'DatatablesController@dashboardDrug')->name('datatables.drug');
-Route::put('report/edit/{id}','ReportController@edit')->name('reportEdit');
+Route::put('report/edit/{request}','ReportController@edit')->name('reportEdit');
 
