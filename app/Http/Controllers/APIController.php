@@ -121,6 +121,14 @@ class APIController extends Controller
         return Model::json2Class($json, Pratitioner::class);
     }
 
+    public static function pratitionerById($id)
+    {
+        $client = new Client();
+        $res = $client->request('GET',env('RAO_URL').'/pratitioner/byId/'.$id);
+        $json = $res->getBody();
+        return Model::json2Class($json, Pratitioner::class);
+    }
+
     public static function reportById($reportId)
     {
         $client = new Client();
@@ -134,6 +142,12 @@ class APIController extends Controller
         $client = new Client();
         $res = $client->request('POST',env('RAO_URL').'/report/create');
         return json_decode($res->getBody());
+    }
+
+    public static function reportEdit()
+    {
+        $client = new Client();
+        $res = $client->request('PUT',env('RAO_URL').'/report/edit');
     }
 
     public static function reportList()

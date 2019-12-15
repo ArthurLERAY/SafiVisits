@@ -12,4 +12,10 @@ class Pratitioner extends Model
         $pratitioners = APIController::pratitionerList();
         return $pratitioners;
     }
+
+    public static function byId($id)
+    {
+        $pratitioner = APIController::pratitionerById($id);
+        return $pratitioner;
+    }
 }

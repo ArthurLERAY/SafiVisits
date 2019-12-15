@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Pratitioner;
 use App\Visit;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $visites=Visit::statsDashboard(2);
-        return view('home',['visites'=>$visites]);
+        $visites=Visit::statsDashboard(1);
+        $pratitioner=Pratitioner::byId(1);
+        $pratitioner=$pratitioner[0];
+
+
+        return view('dashboard/home',['visites'=>$visites,'pratitioner'=>$pratitioner]);
     }
 }

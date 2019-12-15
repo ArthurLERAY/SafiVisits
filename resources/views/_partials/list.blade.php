@@ -1,41 +1,36 @@
-<!-- todo list with search bar -->
+@extends('layouts.app')
+
 @section('js')
     <script>
-        $(document).ready(function () {
-            $('.Datatables').dataTable();
-        });
+        $(document).ready(function() {
+            $('#table').DataTable();
+        } );
     </script>
-@stop
-<table class="Datatables">
+@endsection
+<table class="table" id="table">
     <thead>
-        <tr>
-            <th>
-                Heure
-            </th>
-            <th>
-                Lieu
-            </th>
-            <th>
-                Personne
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
+    <tr>
+        <th class="text-center">Heure</th>
+        <th class="text-center">Lieu</th>
+        <th class="text-center">Personne</th>
+        <th class="text-center">Action</th>
+    </tr>
     </thead>
     <tbody>
-    @if (isset($visites))
-            @foreach($visites as $visite)
-                <tr>
-                    <td>
-                        {{$visite->date}}
-                    </td>
-                </tr>
-            @endforeach
-
-    @endif
+    @foreach($items as $data)
+        <tr>
+            <td class="text-center">{{$data->date}}</td>
+            <td class="text-center">{{$pratitioner->address}}</td>
+            <td class="text-center">{{$pratitioner->firstname.' '.$pratitioner->lastname}}</td>
+            <td>
+                <a href="{{route('report',['id'=>$pratitioner->id])}}">
+                    <button class="edit-modal btn btn-info">
+                        <span class="glyphicon glyphicon-edit"></span> Edit
+                    </button>
+                </a>
+            </td>
+        </tr>
+    @endforeach
     </tbody>
 </table>
-
-
 

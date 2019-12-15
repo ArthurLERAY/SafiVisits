@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/directory','DirectoryController@index')->name('directory');
 Route::get('/complementaryActivities','ComplementaryActivitiesController@index')->name('complementaryActivities');
-Route::get('reports',function(){
-    return file_get_contents('http://127.0.0.1:8001/api/reports');
-});
+Route::get('report/{id}','ReportController@byId')->name('report');
+
+Route::get('dashboard/drug', 'DatatablesController@dashboardDrug')->name('datatables.drug');
+Route::put('report/edit/{id}','ReportController@edit')->name('reportEdit');
+

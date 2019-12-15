@@ -4,6 +4,8 @@ namespace App;
 
 
 
+use App\Http\Controllers\APIController;
+
 class Report extends Model
 {
 
@@ -14,17 +16,17 @@ class Report extends Model
 
     public static function list()
     {
-        $reports = [] ;
-        $jsonArrays = RAO::get('report/list');
-        foreach ($jsonArrays as $jsonArray) {
-            $oneReport = new Report($jsonArray);
-            $reports[] = $oneReport;
-        }
-        return $reports;
+
     }
 
-    public function byId()
+    public static function byId($id)
     {
+        $report = APIController::reportById($id);
+        return $report;
+    }
 
+    public static function edit()
+    {
+        $report = APIController::reportEdit();
     }
 }

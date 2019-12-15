@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Http\Controllers\APIController;
+
 class Drug extends Model
 {
     public function statDashboard()
@@ -9,14 +11,9 @@ class Drug extends Model
 
     }
 
-    public function list()
+    public static function list()
     {
-        $drugs = [] ;
-        $jsonArrays = RAO::get($this->routeAPISuite.'/list');
-        foreach ($jsonArrays as $jsonArray) {
-            $oneDrug = new Drug($jsonArray);
-            $drugs[] = $oneDrug;
-        }
+        $drugs = APIController::drugList();
         return $drugs;
     }
 
